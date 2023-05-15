@@ -1,0 +1,230 @@
+* img {
+	
+	max-width: 100%;
+	height: auto;
+	border-radius: 9px;
+	
+}
+
+body {
+	
+	background: papayawhip;
+	
+}
+
+/** Navbar begins here */
+
+.navbar {
+	
+	width: 80%;
+	margin: 0 auto;
+	
+}
+
+header {
+  
+	background: #C4A484;
+	/** background-image: url("images/crumple.jpg"); */
+	/** border-radius: 9px; <-- Removed to help make it look different
+	margin: 35px; */
+	
+}
+
+header::after {
+
+	content: '';
+	display: table;
+	clear: both;
+	
+}
+
+.logo {
+  
+	color: #4b3621;
+	font-size: 18px;
+	font-family: futurabold;
+	float: left;
+	padding: 10px 0;
+	
+}
+
+nav {
+  
+	float: right;
+	
+}
+
+nav ul {
+	
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	
+}
+
+nav li {
+  
+	display: inline-block;
+	margin-left: 70px;
+	padding-top: 23px;
+	padding-bottom: 23px;
+
+	position: relative;
+	
+}
+
+nav a {
+	
+	color: #d3d3d3;
+	text-decoration: none;
+	font-size: 14px;
+	
+}
+
+nav a:hover {
+	
+	color: #4b3621;
+	
+}
+
+nav a::before {
+	
+	content: '';
+	display: block;
+	height: 5px;
+	background-color: #4b3621;
+
+	position: absolute;
+	top: 0;
+	width: 0%;
+
+	transition: all ease-in-out 250ms;
+	
+}
+
+nav a:hover::before {
+	
+	width: 100%;
+	
+}
+
+/** End of navbar */
+
+.pagename {
+	
+	font-family: futurabold;
+	font-size: 50px;
+	color: #4b3621;
+	text-align: center;
+	
+}
+
+.introtext {
+	
+	display:flex;
+	flex-wrap: wrap;
+	width: 600px;
+	
+	background-color: #C4A484;
+	border-radius: 9px;
+	padding: 9px;
+	
+	color: #4b3621;
+	font-family: archerlight;
+
+}
+
+.container { /** Contains content title cards */
+  
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	
+	background-color: #C4A484;
+	/** background-image: url("images/coffee.jpg"); <-- still figuring out which image to use */
+	border-radius: 9px;
+	padding: 9px;
+	
+	margin: 35px;
+	
+}
+
+.box { /** Content title cards and backgrounds */
+	
+	display: block;
+	background-color: papayawhip;
+	/** border: 3px solid #4b3621; <-- took this out because of wrapping issues*/
+	max-width: 460px;
+	max-height: 300px;
+	text-align: center;
+	border-radius: 9px;
+	
+	position: relative;
+	margin: 15px;
+
+	/** For blow-up on hover */
+	transition: transform .2s; 
+
+}
+
+.box:hover {
+  
+  -ms-transform: scale(1.1); /* PC browsers */
+  -webkit-transform: scale(1.1); /** Mac browsers */
+  transform: scale(1.1); 
+
+}  
+
+.section { /** Section titles */
+	
+	color: #4b3621;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-family: futurabold;
+	
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	
+}	
+
+.sectiontext { /** Sections that need text */
+	
+	color: #4b3621;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-family: archerbold;
+	
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	
+}
+
+@font-face {
+    
+	font-family: futurabold;
+    src: url("../../../../fonts/futura/futurabold.otf") format("opentype");
+
+}
+
+@font-face {
+	
+	font-family: archerlight;
+	src: url("../../../../fonts/archer/ArcherMediumPro.otf") format("opentype");
+	
+}
+
+@font-face {
+	
+	font-family: archerbold;
+	src: url("../../../../fonts/archer/ArcherBoldPro.otf") format("opentype");
+	
+}
