@@ -6,6 +6,12 @@
 	
 }
 
+body {
+	
+	background: papayawhip;
+	
+}
+
 /** Navbar begins here */
 
 .navbar {
@@ -61,6 +67,7 @@ nav li {
 	display: inline-block;
 	margin-left: 70px;
 	padding-top: 23px;
+	padding-bottom: 23px;
 
 	position: relative;
 	
@@ -132,6 +139,7 @@ nav a:hover::before {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	align-items: center;
 	
 	background-color: #C4A484;
 	/** background-image: url("images/coffee.jpg"); <-- still figuring out which image to use */
@@ -162,9 +170,9 @@ nav a:hover::before {
 
 .box:hover {
   
-	-ms-transform: scale(1.1); /* PC browsers */
-	-webkit-transform: scale(1.1); /** Mac browsers */
-	transform: scale(1.1); 
+  -ms-transform: scale(1.1); /* PC browsers */
+  -webkit-transform: scale(1.1); /** Mac browsers */
+  transform: scale(1.1); 
 
 }  
 
@@ -218,5 +226,5 @@ nav a:hover::before {
 	
 	font-family: archerbold;
 	src: url("../fonts/archer/ArcherBoldPro.otf") format("opentype");
-	
+
 }
