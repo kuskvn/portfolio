@@ -1,0 +1,25 @@
+(function ($, once) {
+  'use strict';
+  Drupal.behaviors.handleFootnotes = {
+    attach: function(context) {
+      once('handleFootnotes', 'html', context).forEach( function (element) {
+        const footnotesList = document.createElement("ul");
+        $('ul.nea_footnotes').find('li').each(function(i, el) {
+          const clone = el.cloneNode(true);
+          footnotesList.append(clone);
+        })
+
+        if(footnotesList.childElementCount===1) {
+          $('.references-list-header-plural', context).addClass('hidden');
+        }
+
+        if(footnotesList.hasChildNodes()) {
+          $('ul.nea_footnotes').remove()
+          $('div.references-list').append(footnotesList);
+          $('.references', context).removeClass('hidden');
+        }
+
+      })
+    }
+  };
+})(jQuery, once);

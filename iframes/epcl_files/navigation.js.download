@@ -1,0 +1,111 @@
+jQuery(document).ready(function($) {
+  var kellerCreative = kellerCreative || {};
+
+  kellerCreative.navigation = {
+
+    addNavMenuListener: function() {
+      $("#mobile-menu").on("click", function(elem) {
+        elem.preventDefault();
+
+        $("#mobile-menu").toggleClass("active");
+        kellerCreative.navigation.toggleMobileMenu();
+        kellerCreative.navigation.toggleSubMenuListener();
+      });
+    },
+
+    addWindowListener: function() {
+      $(window).resize(function() {
+        if ($(window).width() > 768) {
+          kellerCreative.navigation.closeNav();
+        }
+      });
+    },
+
+    closeNav: function() {
+      $("html").removeClass("nav-active");
+      $("#mobile-menu").removeClass("active");
+      $("#site-navigation").removeClass("active");
+      $(".sub-menu").removeClass("active");
+    },
+
+    toggleSubMenuListener: function() {
+      subMenuLinks = document.querySelectorAll(".menu-item i");
+
+      subMenuLinks.forEach(function(subMenuLink) {
+        subMenuLink.addEventListener("click", function(e) {
+          e.preventDefault();
+
+          var subMenu = $(e.target).next();
+          subMenu.toggleClass("active");
+        });
+      });
+    },
+
+    toggleMobileMenu: function() {
+      $("#site-navigation").toggleClass("active");
+      $("html").toggleClass("nav-active");
+    },
+
+    toggleNav: function(navItem) {
+      $(navItem).find(".sub-menu-wrap").toggleClass("active");
+      $(navItem).addClass("active");
+    }
+  };
+
+  kellerCreative.navigation.addNavMenuListener();
+  kellerCreative.navigation.addWindowListener();
+
+  
+
+});
+
+var debug = false;
+var timeSeconds = 6000;
+
+if (debug) {
+  timeSeconds = 0;
+}
+
+var theForm = document.querySelector("#mc-embedded-subscribe-form-2");
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// Execute after 10 seconds
+setTimeout(
+  function () {
+    var notShowing = true;
+    if (sessionStorage.getItem("isClosed")) { 
+      notShowing = false;
+    } else if (modal) {
+      modal.style.display = "block";
+    }    
+}, timeSeconds);
+
+// When the user clicks on <span> (x), close the modal
+if (span && span.onClick) {
+  span.onclick = function() {
+    modal.style.display = "none";
+    sessionStorage.setItem('isClosed', true);
+  }
+}
+
+if (theForm) {
+  theForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    modal.style.display = "none";
+    sessionStorage.setItem('isClosed', true);
+    this.submit();
+  })
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+    sessionStorage.setItem('isClosed', true);
+  }
+}

@@ -1,0 +1,15 @@
+(function ($, cookies) {
+  'use strict';
+
+  Drupal.behaviors.handleGDPR = {
+    attach: function(context, settings) {
+      if (!cookies.get('gdpr')) {
+        let expiration = parseInt(settings.config.GDPR_COOKIE_EXPIRATION_DAYS, 10) || 365
+        $('.gdpr__wrapper', context).addClass('is-open');
+        $('.gdpr__close', context).on('click', function () {
+          cookies.set('gdpr', 1, { expires: expiration })
+        })
+      }
+    }
+  };
+})(jQuery, window.Cookies);

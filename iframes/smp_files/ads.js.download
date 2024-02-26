@@ -1,0 +1,106 @@
+window.googletag = window.googletag || {cmd: []};
+googletag.cmd.push(function() {
+  const ads = window.drupalSettings?.ads
+  const suppressAds = window.drupalSettings?.ads?.suppressAds
+
+  if (ads && !suppressAds) {
+    let adUnitPath = ads.customAdUnitPath || ads.defaultAdUnitPath
+    let { baseDivId, isRAA, isNeaToday, isNeaTodayHome, isNeaTodayIssue, staticAdSlots } = ads
+    let firstAd, panorama, neaTodayHomeStatic, secondAd
+
+    googletag.pubads().collapseEmptyDivs();
+    googletag.pubads().enableSingleRequest();
+
+    if (isRAA) {
+      // Handle RAA-specific panorama.
+      panorama = googletag.sizeMapping()
+        .addSize([1030, 0], [980, 120]) // >= 1030px wide, show 980x120
+        .addSize([0, 0], [320, 50]) // >= 0px && < 820px wide, show 320x50
+        .build()
+
+      firstAd = googletag.sizeMapping()
+        .addSize([1060, 0], [970, 250]) // >= 1060px wide, show 970x250
+        .addSize([0, 0], [320, 50]) // >= 0px && < 1060px wide, show 320x50
+        .build()
+
+      secondAd = googletag.sizeMapping()
+        .addSize([1060, 0], [970, 250]) // >= 1060px wide, show 970x250
+        .addSize([0, 0], [320, 50]) // >= 0px && < 1060px wide, show 320x50
+        .build()
+    }
+    else if (isNeaToday) {
+      // NEA Today has special ad sizes. See https://airtable.com/app44D0oFjtU8Lrbp/tblMXCfpg1Vd2lCy7/viwXJ8jgKKjtXou0t/recPs5lwThhshIWxG?blocks=hide
+      panorama = googletag.sizeMapping()
+        .addSize([1060, 0], [970, 250]) // >= 1060px wide, show 970x250
+        .addSize([1030, 0], [980, 120]) // >= 1030px wide, show 980x120
+        .addSize([820, 0], [728, 90]) // >= 820px wide, show 728x90
+        .addSize([0, 0], [300, 250]) // >= 0px && < 1060px wide, show 300x250
+        .addSize([0, 0], [320, 50]) // >= 0px && < 1060px wide, show 320x50
+        .build()
+
+      if (isNeaTodayHome) {
+        // Static ad after the third body component.
+        neaTodayHomeStatic = googletag.sizeMapping()
+          .addSize([1060, 0], [970, 250]) // >= 1060px wide, show 970x250
+          .addSize([1030, 0], [980, 120]) // >= 1030px wide, show 980x120
+          .addSize([820, 0], [728, 90]) // >= 820px wide, show 728x90
+          .addSize([0, 0], [300, 250]) // >= 0px && < 1060px wide, show 300x250
+          .addSize([0, 0], [320, 50]) // >= 0px && < 1060px wide, show 320x50
+          .build()
+      }
+
+      if (isNeaTodayHome || isNeaTodayIssue) {
+        // Larger size ad before the NEA Today Promo.
+        firstAd = googletag.sizeMapping()
+          .addSize([1060, 0], [970, 250]) // >= 1060px wide, show 970x250
+          .addSize([1030, 0], [980, 120]) // >= 1030px wide, show 980x120
+          .addSize([820, 0], [728, 90]) // >= 820px wide, show 728x90
+          .addSize([0, 0], [300, 250]) // >= 0px && < 1060px wide, show 300x250
+          .addSize([0, 0], [320, 50]) // >= 0px && < 1060px wide, show 320x50
+          .build()
+      }
+    }
+    else {
+      firstAd = googletag.sizeMapping()
+        .addSize([1060, 0], [[970, 250], [728, 90]]) // >= 1060px wide, show 970x250 or 728×90
+        .addSize([820, 0], [728, 90]) // >= 820px wide, show 728x90
+        .addSize([0, 0], [320, 50]) // >= 0px && < 1060px wide, show 320x50
+        .build()
+
+      // Second ad uses 300×250 instead of 320×50
+      secondAd = googletag.sizeMapping()
+        .addSize([1060, 0], [[970, 250], [300, 250]]) // >= 1060px wide, show 970x250 or 300×250
+        .addSize([0, 0], [300, 250]) // >= 0px && < 1060px wide, show 300x250
+        .build()
+    }
+
+    if (isRAA) {
+      googletag.defineSlot(adUnitPath, [[980, 120], [320, 50]], baseDivId + '2').addService(googletag.pubads()).defineSizeMapping(panorama)
+    }
+
+    if (isNeaToday ) {
+      googletag.defineSlot(adUnitPath, [[970, 250], [980, 120], [728, 90], [300, 250], [320, 50]], baseDivId + '2').addService(googletag.pubads()).defineSizeMapping(panorama)
+    }
+
+    if (isNeaTodayHome || isNeaTodayIssue) {
+      if (isNeaTodayHome) {
+        googletag.defineSlot(adUnitPath, [[970, 250], [980, 120], [728, 90], [300, 250], [320, 50]], baseDivId + 'home-static').addService(googletag.pubads()).defineSizeMapping(neaTodayHomeStatic)
+      }
+
+      // For both NEA Today Home and NEA Today Issue pages.
+      googletag.defineSlot(adUnitPath, [[970, 250], [980, 120], [728, 90], [300, 250], [320, 50]], baseDivId + '0').addService(googletag.pubads()).defineSizeMapping(firstAd)
+    }
+
+    if (!(isNeaTodayHome || isNeaTodayIssue)) {
+      // Regular ads.
+      googletag.defineSlot(adUnitPath, [[970, 250], [728, 90], [320, 50]], baseDivId + '0').addService(googletag.pubads()).defineSizeMapping(firstAd)
+
+      if (staticAdSlots > 1) {
+        googletag.defineSlot(adUnitPath, [[970, 250], [300, 250]], baseDivId + '1').addService(googletag.pubads()).defineSizeMapping(secondAd)
+      }
+    }
+
+    googletag.enableServices();
+
+  }
+});
