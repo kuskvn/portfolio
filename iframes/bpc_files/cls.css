@@ -1,0 +1,146 @@
+body {
+	--fsAddBuffer: 0px;
+}
+[id='boredpandacom_singleimage_bottom'],
+[id='boredpandacom_sidebar_slider'],
+[id='boredpandacom_mobile_homepage_top'],
+[id='boredpandacom_sidebar_top'],
+[id='boredpandacom_singlepost_top'],
+[id='boredpandacom_mobile_homepage_mid'],
+[id='boredpandacom_singlepost_bottom'],
+[id='boredpandacom_sidebar_mid'],
+[id='boredpandacom_top_billboard'],
+[id='boredpandacom_singleimage_mid'],
+[id='boredpandacom_singlepost_mid'],
+[id='boredpandacom_wideview_mid'],
+[id='boredpandacom_mobile_singlepost_bottom'],
+[id='boredpandacom_mobile_singlepost_top'],
+[id='boredpandacom_mobile_singleimage_bottom'],
+[id='boredpandacom_mobile_infinitescroll'],
+[id='boredpandacom_desktop_infinitescroll'],
+[id='boredpandacom_desktop_wideview_mid_970x250'],
+[id='boredpandacom_singleimage_mid_3'],
+[id='boredpandacom_singleimage_mid_2'],
+[id='boredpandacom_insidepoll_mobile'],
+[id='boredpandacom_insidepoll_desktop'],
+[id='boredpandacom_outsidepoll_desktop'],
+[id='boredpandacom_outsidepoll_mobile'] {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	min-height: calc(var(--height) + var(--fsAddBuffer));
+	width: 100%;
+}
+[id='boredpandacom_insidepoll_mobile'] {
+		--height: 250px;
+}
+[id='boredpandacom_mobile_homepage_mid'] {
+		--height: 280px;
+}
+[id='boredpandacom_mobile_homepage_top'] {
+		--height: 280px;
+}
+[id='boredpandacom_mobile_infinitescroll'] {
+		--height: 280px;
+}
+[id='boredpandacom_mobile_singleimage_bottom'] {
+		--height: 280px;
+}
+[id='boredpandacom_mobile_singlepost_bottom'] {
+		--height: 280px;
+}
+[id='boredpandacom_mobile_singlepost_top'] {
+		--height: 280px;
+}
+[id='boredpandacom_outsidepoll_mobile'] {
+		--height: 250px;
+}
+[id='boredpandacom_singleimage_mid'] {
+		--height: 280px;
+}
+[id='boredpandacom_singleimage_mid_2'] {
+		--height: 280px;
+}
+[id='boredpandacom_singleimage_mid_3'] {
+		--height: 280px;
+}
+[id='boredpandacom_singlepost_mid'] {
+		--height: 280px;
+}
+@media only screen and (min-width: 768px) {
+	[id='boredpandacom_desktop_infinitescroll'] {
+		--height: 90px;
+	}
+	[id='boredpandacom_insidepoll_desktop'] {
+		--height: 280px;
+	}
+	[id='boredpandacom_insidepoll_mobile'] {
+		display: none; 
+	}
+	[id='boredpandacom_mobile_homepage_mid'] {
+		display: none; 
+	}
+	[id='boredpandacom_mobile_homepage_top'] {
+		display: none; 
+	}
+	[id='boredpandacom_mobile_infinitescroll'] {
+		display: none; 
+	}
+	[id='boredpandacom_mobile_singleimage_bottom'] {
+		display: none; 
+	}
+	[id='boredpandacom_mobile_singlepost_bottom'] {
+		display: none; 
+	}
+	[id='boredpandacom_mobile_singlepost_top'] {
+		display: none; 
+	}
+	[id='boredpandacom_outsidepoll_desktop'] {
+		--height: 280px;
+	}
+	[id='boredpandacom_outsidepoll_mobile'] {
+		display: none; 
+	}
+	[id='boredpandacom_sidebar_mid'] {
+		--height: 600px;
+	}
+	[id='boredpandacom_sidebar_slider'] {
+		--height: 250px;
+	}
+	[id='boredpandacom_sidebar_top'] {
+		--height: 250px;
+	}
+	[id='boredpandacom_singleimage_bottom'] {
+		--height: 90px;
+	}
+	[id='boredpandacom_singleimage_mid'] {
+		display: none; 
+	}
+	[id='boredpandacom_singleimage_mid_2'] {
+		display: none; 
+	}
+	[id='boredpandacom_singleimage_mid_3'] {
+		display: none; 
+	}
+	[id='boredpandacom_singlepost_bottom'] {
+		--height: 90px;
+	}
+	[id='boredpandacom_singlepost_mid'] {
+		display: none; 
+	}
+	[id='boredpandacom_singlepost_top'] {
+		--height: 280px;
+	}
+	[id='boredpandacom_top_billboard'] {
+		--height: 250px;
+	}
+	[id='boredpandacom_wideview_mid'] {
+		--height: 250px;
+	}
+}
+@media only screen and (min-width: 970px) {
+	[id='boredpandacom_desktop_wideview_mid_970x250'] {
+		--height: 250px;
+	}
+}

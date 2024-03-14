@@ -1,0 +1,122 @@
+(function(){
+'use strict';
+
+window.BoredPanda = window.BoredPanda || {};
+BoredPanda.ExperimentsInit = {
+  variation: null,
+  init: function() {
+    this.debugging = false;
+    const allExperiments = BoredPanda.Config.experimentsOptions;
+    const serverSideExperiment = BoredPanda.Config.experimentsToInit;
+
+    if (serverSideExperiment !== undefined && serverSideExperiment.length > 0) {
+      if (
+        serverSideExperiment[0].device === 'all' ||
+        serverSideExperiment[0].device === 'big' && !BoredPanda.Config.isMobileWidth ||
+        serverSideExperiment[0].device === 'small' && BoredPanda.Config.isMobileWidth
+      ) {
+        this.debug('Server side experiment found');
+        let variation = serverSideExperiment[0].variation;
+        // const cookieKey = 'experiment_' + serverSideExperiment[0].id;
+        // if (document.cookie.indexOf(cookieKey + '=') > -1) {
+        //   variation = parseInt(this.getCookie(cookieKey));
+        //   this.debug('Found variation in cookies: ' + variation);
+        // } else {
+        //   this.setCookie(cookieKey, variation, 60);
+        // }
+        this.gtag('set', {'experiments': [{'id': serverSideExperiment[0].id, 'variant': variation}]});
+        this.applyBehavior(variation, serverSideExperiment[0].id);
+        return;
+      }
+    }
+
+    if (allExperiments === undefined || allExperiments.length === 0) {
+      this.debug('No experiments found');
+      return;
+    }
+
+    let currentExperiment = null;
+
+    if (!currentExperiment) {
+      for (var i in allExperiments) {
+        if (allExperiments[i].enabled !== 1) {
+          continue;
+        }
+
+        if (allExperiments[i].screen_size === 'all') {
+          currentExperiment = allExperiments[i];
+          break;
+        }
+
+        if (allExperiments[i].screen_size === 'big' && !BoredPanda.Config.isMobileWidth) {
+          currentExperiment = allExperiments[i];
+          break;
+        }
+
+        if (allExperiments[i].screen_size === 'small' && BoredPanda.Config.isMobileWidth) {
+          currentExperiment = allExperiments[i];
+          break;
+        }
+      }
+    }
+
+    if (currentExperiment === null) {
+      this.debug('No suitable experiment for the device has been found');
+      return;
+    }
+
+    this.debug('Found an experiment');
+    this.debug(currentExperiment);
+
+    this.gtag('event', 'optimize.callback', {
+      name: currentExperiment.id_number,
+      callback: this.applyBehavior
+    });
+  },
+  getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) {
+      return parts.pop().split(';').shift();
+    }
+  },
+  setCookie(name, value, days) {
+    let expires;
+    if (days) {
+      let date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toUTCString();
+    } else {
+      expires = "";
+    }
+    document.cookie = name + "=" + value + expires + "; path=/";
+  },
+  gtag: function() {
+    dataLayer.push(arguments);
+  },
+  debug: function(msg) {
+    if (!this.debugging) {
+      return;
+    }
+    let msgType = typeof msg;
+    if (msgType !== 'string' && msgType !== 'number' && msgType !== 'boolean') {
+      console.log(msg);
+    } else {
+      console.log('[exp] ' + msg);
+    }
+  },
+
+  applyBehavior: function(variation, experimentId) {
+    let url = new URL(location.href);
+    if (url.searchParams.get('variation') !== null) {
+      variation = url.searchParams.get('variation');
+    }
+    BoredPanda.Config.experimentVariation = parseInt(variation);
+    BoredPanda.ExperimentsInit.debug('Chosen variation ' + parseInt(variation));
+  },
+
+};
+
+BoredPanda.ExperimentsInit.init();
+
+})();
