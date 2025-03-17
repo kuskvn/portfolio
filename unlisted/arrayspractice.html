@@ -136,7 +136,7 @@ Luck: (print: $special&#39;s 7th) //[[edit-&gt;Luck]]//
 
 (input: bind $name)
 
-[[Next (Character sheet)-&gt;Character Sheet]]</tw-passagedata><tw-passagedata pid="11" name="$currentstat test" tags="" position="750,100" size="100,100">(set: $currentstat to &quot;special&#39;s 1st&quot;)
+[[Next (Character sheet)-&gt;Confirm]]</tw-passagedata><tw-passagedata pid="11" name="$currentstat test" tags="" position="750,100" size="100,100">(set: $currentstat to &quot;special&#39;s 1st&quot;)
 
 Strength is the measure of your physical prowess and capacity. This will dictate your ability to fight with melee weapons and unarmed. In addition this affects your carrying capacity and ability to handle certain cumbersome weapons.
 
@@ -150,10 +150,10 @@ Strength is the measure of your physical prowess and capacity. This will dictate
 (button:) [ (link-rerun: &quot;+1&quot;) [(set: $currentstat to $currentstat + 1) (set: $extra to $extra - 1)] ]
 
 ==|
-[[Next (Perception)-&gt;Perception]]</tw-passagedata><tw-passagedata pid="12" name="Character Sheet" tags="" position="1500,300" size="100,100">Is this okay?
+[[Next (Perception)-&gt;Perception]]</tw-passagedata><tw-passagedata pid="12" name="Confirm" tags="" position="1500,300" size="100,100">Is this okay?
 
 $name
- 
+
 Strength: (print: $special&#39;s 1st)
 Perception: (print: $special&#39;s 2nd)
 Endurance: (print: $special&#39;s 3rd)
@@ -161,6 +161,20 @@ Charisma: (print: $special&#39;s 4th)
 Intelligence: (print: $special&#39;s 5th)
 Agility: (print: $special&#39;s 6th)
 Luck: (print: $special&#39;s 7th)
+
+[[View your character-&gt;Character Sheet]]</tw-passagedata><tw-passagedata pid="13" name="Character Sheet" tags="" position="1625,300" size="100,100">You are (print: $name)!
+
+Strength: (print: $special&#39;s 1st)
+Perception: (print: $special&#39;s 2nd)
+Endurance: (print: $special&#39;s 3rd)
+Charisma: (print: $special&#39;s 4th)
+Intelligence: (print: $special&#39;s 5th)
+Agility: (print: $special&#39;s 6th)
+Luck: (print: $special&#39;s 7th)
+
+(if: $special&#39;s 1st is 10) [$name can&#39;t get enough muscle!]
+(if: $special contains 5) [$name is pretty average in some areas.]
+(if: $special contains 1 and $special contains 10) [You&#39;re a bit of a minmaxer, huh?]
 
 //This is the end of this particular piece, click below to restart, there is no actual adventure other than numbers and words, unfortunately//
 
