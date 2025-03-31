@@ -9,17 +9,9 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play archival.</tw-noscript></noscript></tw-story>
-<tw-storydata name="archival" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="10389A50-59A5-41F7-8B19-02A20278D31B" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Start Menu" tags="" position="900,325" size="100,100">(set: $character to (a: 0, 0, 0))
-(set: $unanswered to (a: &quot;Agree 1&quot;, &quot;Agree 2&quot;, &quot;Agree 3&quot;, &quot;Blot 1&quot;, &quot;Blot 2&quot;, &quot;Blot 3&quot;))
-(set: $numNext to 0)
-(set: $passageNext to &quot;&quot;)
-(set: $numToAnswer to 4)
+<tw-storydata name="archival" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="10389A50-59A5-41F7-8B19-02A20278D31B" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Start Menu" tags="" position="425,150" size="100,100">[[I&#39;m ready.-&gt;$passageNext]]
 
-(set: $numNext to (random: 1, $unanswered&#39;s length))
-(set: $passageNext to $unanswered&#39;s ($numNext))
-(set: $unanswered to it - (a: $unanswered&#39;s $numNext))
-
-[[I&#39;m ready.-&gt;$passageNext]]</tw-passagedata><tw-passagedata pid="2" name="Agree 1" tags="" position="1025,300" size="100,100">(set: $numToAnswer to it - 1)
+[[I&#39;m testing the style of this piece.-&gt;Style Test (Blot 1 Copy)]]</tw-passagedata><tw-passagedata pid="2" name="Agree 1" tags="" position="550,125" size="100,100">(set: $numToAnswer to it - 1)
 (set: $numNext to (random: 1, $unanswered&#39;s length))
 (set: $passageNext to $unanswered&#39;s ($numNext))
 (set: $unanswered to it - (a: $unanswered&#39;s $numNext))
@@ -80,7 +72,7 @@ Select to which degree you agree with the below statement:
 //NOTE: THIS IS A PLACEHOLDER WHILE I FIGURE OUT HOW TO ENSURE THAT THERE IS AN ANSWER BEFORE YOU MOVE ON//
 
 (if: $numToAnswer &gt; 0)[[[Next-&gt;$passageNext]]]
-(else:)[[[Next-&gt;Evaluation]]]</tw-passagedata><tw-passagedata pid="3" name="Agree 2" tags="" position="1025,425" size="100,100">(set: $numToAnswer to it - 1)
+(else:)[[[Next-&gt;Evaluation]]]</tw-passagedata><tw-passagedata pid="3" name="Agree 2" tags="" position="550,250" size="100,100">(set: $numToAnswer to it - 1)
 (set: $numNext to (random: 1, $unanswered&#39;s length))
 (set: $passageNext to $unanswered&#39;s ($numNext))
 (set: $unanswered to it - (a: $unanswered&#39;s $numNext))
@@ -141,7 +133,7 @@ Select to which degree you agree with the below statement:
 //NOTE: THIS IS A PLACEHOLDER WHILE I FIGURE OUT HOW TO ENSURE THAT THERE IS AN ANSWER BEFORE YOU MOVE ON//
 
 (if: $numToAnswer &gt; 0)[[[Next-&gt;$passageNext]]]
-(else:)[[[Next-&gt;Evaluation]]]</tw-passagedata><tw-passagedata pid="4" name="Agree 3" tags="" position="1025,550" size="100,100">(set: $numToAnswer to it - 1)
+(else:)[[[Next-&gt;Evaluation]]]</tw-passagedata><tw-passagedata pid="4" name="Agree 3" tags="" position="550,375" size="100,100">(set: $numToAnswer to it - 1)
 (set: $numNext to (random: 1, $unanswered&#39;s length))
 (set: $passageNext to $unanswered&#39;s ($numNext))
 (set: $unanswered to it - (a: $unanswered&#39;s $numNext))
@@ -202,7 +194,7 @@ Select to which degree you agree with the below statement:
 //NOTE: THIS IS A PLACEHOLDER WHILE I FIGURE OUT HOW TO ENSURE THAT THERE IS AN ANSWER BEFORE YOU MOVE ON//
 
 (if: $numToAnswer &gt; 0)[[[Next-&gt;$passageNext]]]
-(else:)[[[Next-&gt;Evaluation]]]</tw-passagedata><tw-passagedata pid="5" name="Blot 1" tags="" position="1150,300" size="100,100">(set: $numToAnswer to it - 1)
+(else:)[[[Next-&gt;Evaluation]]]</tw-passagedata><tw-passagedata pid="5" name="Blot 1" tags="" position="675,125" size="100,100">(set: $numToAnswer to it - 1)
 (set: $numNext to (random: 1, $unanswered&#39;s length))
 (set: $passageNext to $unanswered&#39;s ($numNext))
 (set: $unanswered to it - (a: $unanswered&#39;s $numNext))
@@ -263,7 +255,7 @@ Select the option that most closely aligns with your interpretation of the below
 //NOTE: THIS IS A PLACEHOLDER WHILE I FIGURE OUT HOW TO ENSURE THAT THERE IS AN ANSWER BEFORE YOU MOVE ON//
 
 (if: $numToAnswer &gt; 0)[[[Next-&gt;$passageNext]]]
-(else:)[[[Next-&gt;Evaluation]]]</tw-passagedata><tw-passagedata pid="6" name="Blot 2" tags="" position="1150,425" size="100,100">(set: $numToAnswer to it - 1)
+(else:)[[[Next-&gt;Evaluation]]]</tw-passagedata><tw-passagedata pid="6" name="Blot 2" tags="" position="675,250" size="100,100">(set: $numToAnswer to it - 1)
 (set: $numNext to (random: 1, $unanswered&#39;s length))
 (set: $passageNext to $unanswered&#39;s ($numNext))
 (set: $unanswered to it - (a: $unanswered&#39;s $numNext))
@@ -325,7 +317,7 @@ Select the option that most closely aligns with your interpretation of the below
 //NOTE: THIS IS A PLACEHOLDER WHILE I FIGURE OUT HOW TO ENSURE THAT THERE IS AN ANSWER BEFORE YOU MOVE ON//
 
 (if: $numToAnswer &gt; 0)[[[Next-&gt;$passageNext]]]
-(else:)[[[Next-&gt;Evaluation]]]</tw-passagedata><tw-passagedata pid="7" name="Blot 3" tags="" position="1150,550" size="100,100">(set: $numToAnswer to it - 1)
+(else:)[[[Next-&gt;Evaluation]]]</tw-passagedata><tw-passagedata pid="7" name="Blot 3" tags="" position="675,375" size="100,100">(set: $numToAnswer to it - 1)
 (set: $numNext to (random: 1, $unanswered&#39;s length))
 (set: $passageNext to $unanswered&#39;s ($numNext))
 (set: $unanswered to it - (a: $unanswered&#39;s $numNext))
@@ -387,7 +379,7 @@ Select the option that most closely aligns with your interpretation of the below
 //NOTE: THIS IS A PLACEHOLDER WHILE I FIGURE OUT HOW TO ENSURE THAT THERE IS AN ANSWER BEFORE YOU MOVE ON//
 
 (if: $numToAnswer &gt; 0)[[[Next-&gt;$passageNext]]]
-(else:)[[[Next-&gt;Evaluation]]]</tw-passagedata><tw-passagedata pid="8" name="$passageNext" tags="" position="675,300" size="100,100">&lt;!-- This passage isn&#39;t real, but the editor doesn&#39;t know what to do with using a string variable to send you to another random passage --&gt;</tw-passagedata><tw-passagedata pid="9" name="Evaluation" tags="" position="1275,325" size="100,100">(set: $max to 0)
+(else:)[[[Next-&gt;Evaluation]]]</tw-passagedata><tw-passagedata pid="8" name="$passageNext" tags="" position="175,125" size="100,100">&lt;!-- This passage isn&#39;t real, but the editor doesn&#39;t know what to do with using a string variable to send you to another random passage --&gt;</tw-passagedata><tw-passagedata pid="9" name="Evaluation" tags="" position="800,150" size="100,100">(set: $max to 0)
 (set: $myCharacter to 0)
 (for: each _score, ...$character)[
 
@@ -398,7 +390,7 @@ Select the option that most closely aligns with your interpretation of the below
 
 (if: $myCharacter is 1)[Bright blue light shone on his face as he typed hurriedly. He looked over his shoulder constantly, as if he were traveling and being followed.]
 (if: $myCharacter is 2)[Normally she wouldn&#39;t have even booted up his computer without mentioning it to him first, but she needed to figure out what was going on with all of the letters. Maybe she had accidentally signed up for some kind of spam?]
-(if: $myCharacter is 3)[The screen&#39;s glow is dampened by a shroud of dust. Several strings of characters and numbers are written out on an old notepad. Tapping at they keyboard, they began quickly transcribing each of the passwords into the blinking input box.]</tw-passagedata><tw-passagedata pid="10" name="Dummy" tags="" position="675,425" size="100,100">&lt;!-- Below is cut or moved code that&#39;s stored here for posterity&#39;s sake --&gt;
+(if: $myCharacter is 3)[The screen&#39;s glow is dampened by a shroud of dust. Several strings of characters and numbers are written out on an old notepad. Tapping at they keyboard, they began quickly transcribing each of the passwords into the blinking input box.]</tw-passagedata><tw-passagedata pid="10" name="Dummy" tags="" position="50,250" size="100,100">&lt;!-- Below is cut or moved code that&#39;s stored here for posterity&#39;s sake --&gt;
 
 &lt;!-- This is for incrementing through text and whatnot --&gt;
 (set: $answer to &quot;Strongly agree&quot;)
@@ -408,7 +400,112 @@ Select the option that most closely aligns with your interpretation of the below
 
 &lt;!-- Next page placeholder incrementing--&gt;
 (if: $numToAnswer &gt; 0)[[[Next-&gt;$passageNext]]]
-(else:)[[[Next-&gt;Evaluation]]]</tw-passagedata><tw-passagedata pid="11" name="Notepad" tags="" position="675,550" size="100,100">Characters: Place 1 is Him, place 2 is Her, place 3 is user1</tw-passagedata></tw-storydata>
+(else:)[[[Next-&gt;Evaluation]]]</tw-passagedata><tw-passagedata pid="11" name="Notepad" tags="" position="50,375" size="100,100">Characters: Place 1 is Him, place 2 is Her, place 3 is user1</tw-passagedata><tw-passagedata pid="12" name="startup" tags="startup" position="300,150" size="100,100">(set: $character to (a: 0, 0, 0))
+(set: $unanswered to (a: &quot;Agree 1&quot;, &quot;Agree 2&quot;, &quot;Agree 3&quot;, &quot;Blot 1&quot;, &quot;Blot 2&quot;, &quot;Blot 3&quot;))
+(set: $numNext to 0)
+(set: $passageNext to &quot;&quot;)
+(set: $numToAnswer to 4)
+
+(set: $numNext to (random: 1, $unanswered&#39;s length))
+(set: $passageNext to $unanswered&#39;s ($numNext))
+(set: $unanswered to it - (a: $unanswered&#39;s $numNext))</tw-passagedata><tw-passagedata pid="13" name="Style Test (Blot 1 Copy)" tags="survey" position="300,500" size="100,100">(set: $numToAnswer to it - 1)
+(set: $numNext to (random: 1, $unanswered&#39;s length))
+(set: $passageNext to $unanswered&#39;s ($numNext))
+(set: $unanswered to it - (a: $unanswered&#39;s $numNext))
+
+Select the option that most closely aligns with your interpretation of the below image.
+&lt;html&gt;
+&lt;img src = &quot;../images/rorone.jpg&quot; alt = &quot;Ink Blot&quot;&gt;
+&lt;/html&gt;
+|response&gt;[{
+	
+    (link: &quot;Two winged figures, each looking skyward&quot;)[
+		
+        (set: $answer to &quot;two&quot;)
+        (set: $character&#39;s 3rd to it + 3)
+		(replace: ?response)[[Two winged figures, each looking skyward-&gt;$passageNext]]
+        
+	]
+	
+    &lt;br&gt;
+    (link: &quot;Horzontal mandibles with prey squeezed between them&quot;)[
+    
+		(set: $answer to &quot;mandibles&quot;)
+        (set: $character&#39;s 3rd to it + 1)
+		(replace: ?response)[Horzontal mandibles with prey squeezed between them]
+        
+	]
+	
+    &lt;br&gt;
+	(link: &quot;A flock of birds perched atop a looming spiral structure&quot;)[
+		
+        (set: $answer to &quot;flock&quot;)
+        (set: $character&#39;s 1st to it + 2)
+        (set: $character&#39;s 2nd to it + 2)
+		(replace: ?response)[A flock of birds perched atop a looming spiral structure]
+        
+	]
+     
+    &lt;br&gt;
+	(link: &quot;A chorus singing a dirge in unison&quot;)[
+		
+        (set: $answer to &quot;chorus&quot;)
+        (set: $character&#39;s 1st to it + 3)
+		(replace: ?response)[A chorus singing a dirge in unison]
+        
+	]
+     
+    &lt;br&gt;
+	(link: &quot;Crowds of onlookers adoring a woman in an opulent dress&quot;)[
+		
+        (set: $answer to &quot;crowds&quot;)
+        (set: $character&#39;s 2nd to it + 2)
+		(replace: ?response)[Crowds of onlookers adoring a woman in an opulent dress]
+        
+	]
+
+}]
+
+//NOTE: THIS IS A PLACEHOLDER WHILE I FIGURE OUT HOW TO ENSURE THAT THERE IS AN ANSWER BEFORE YOU MOVE ON//
+
+(if: $numToAnswer &gt; 0)[[[Next-&gt;$passageNext]]]
+(else:)[[[Next-&gt;Evaluation]]]</tw-passagedata><tw-passagedata pid="14" name="Survey Stylesheet" tags="" position="425,500" size="100,100">tw-story [tags~=&quot;survey&quot;] {
+
+	padding-top: 8px;
+    padding-bottom 8px;
+    padding-left: 80px;
+    padding-right: 40px;
+    
+    color: #4b3621
+    background-color: papayawhip;
+    font-family: archerlight;
+    /** font-size: 25px; &lt;-- video said this was useless but still curious */
+    /** text-shadow: 0 0 3px, &lt;-- This needs better colors first */
+    
+    	@font-face {
+
+        font-family: futurabold;
+        src: url(&quot;../fonts/futura/futurabold.otf&quot;) format(&quot;opentype&quot;);
+
+        }
+
+        @font-face {
+
+        font-family: archerlight;
+        src: url(&quot;../fonts/archer/ArcherMediumPro.otf&quot;) format(&quot;opentype&quot;);
+
+        }
+
+        @font-face {
+
+        font-family: archerbold;
+        src: url(&quot;../fonts/archer/ArcherBoldPro.otf&quot;) format(&quot;opentype&quot;);
+
+        }
+    
+}
+    
+</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
