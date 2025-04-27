@@ -465,68 +465,71 @@ Select the option that most closely aligns with your interpretation of the below
 (set: $passageNext to $unanswered&#39;s ($numNext))
 (set: $unanswered to it - (a: $unanswered&#39;s $numNext))
 
-&lt;div class = &quot;textbox&quot;&gt;
+&lt;div class = &quot;scene&quot;
 
-Select the option that most closely aligns with your interpretation of the below image.
-&lt;html&gt;
-&lt;img src = &quot;../images/rorone.jpg&quot; alt = &quot;Ink Blot&quot;&gt;
-&lt;/html&gt;
-|response&gt;[{
-	
-    (link: &quot;Two winged figures, each looking skyward&quot;)[
-		
-        (set: $answer to &quot;two&quot;)
-        (set: $character&#39;s 3rd to it + 3)
-		(replace: ?response)[[Two winged figures, each looking skyward-&gt;$passageNext]]
-        
-	]
-	
-    &lt;br&gt;
-    (link: &quot;Horzontal mandibles with prey squeezed between them&quot;)[
-    
-		(set: $answer to &quot;mandibles&quot;)
-        (set: $character&#39;s 3rd to it + 1)
-		(replace: ?response)[Horzontal mandibles with prey squeezed between them]
-        
-	]
-	
-    &lt;br&gt;
-	(link: &quot;A flock of birds perched atop a looming spiral structure&quot;)[
-		
-        (set: $answer to &quot;flock&quot;)
-        (set: $character&#39;s 1st to it + 2)
-        (set: $character&#39;s 2nd to it + 2)
-		(replace: ?response)[A flock of birds perched atop a looming spiral structure]
-        
-	]
-     
-    &lt;br&gt;
-	(link: &quot;A chorus singing a dirge in unison&quot;)[
-		
-        (set: $answer to &quot;chorus&quot;)
-        (set: $character&#39;s 1st to it + 3)
-		(replace: ?response)[A chorus singing a dirge in unison]
-        
-	]
-     
-    &lt;br&gt;
-	(link: &quot;Crowds of onlookers adoring a woman in an opulent dress&quot;)[
-		
-        (set: $answer to &quot;crowds&quot;)
-        (set: $character&#39;s 2nd to it + 2)
-		(replace: ?response)[Crowds of onlookers adoring a woman in an opulent dress]
-        
-	]
+        &lt;div class = &quot;textbox&quot;&gt;
 
-}]
+                Select the option that most closely aligns with your interpretation of the below image.
+                &lt;html&gt;
+                &lt;img src = &quot;../images/rorone.jpg&quot; alt = &quot;Ink Blot&quot;&gt;
+                &lt;/html&gt;
+                |response&gt;[{
 
-//NOTE: THIS IS A PLACEHOLDER WHILE I FIGURE OUT HOW TO ENSURE THAT THERE IS AN ANSWER BEFORE YOU MOVE ON//
+                    (link: &quot;Two winged figures, each looking skyward&quot;)[
 
-(if: $numToAnswer &gt; 0)[[[Next-&gt;$passageNext]]]
-(else:)[[[Next-&gt;Evaluation]]]
+                        (set: $answer to &quot;two&quot;)
+                        (set: $character&#39;s 3rd to it + 3)
+                        (replace: ?response)[[Two winged figures, each looking skyward-&gt;$passageNext]]
 
+                    ]
+
+                    &lt;br&gt;
+                    (link: &quot;Horzontal mandibles with prey squeezed between them&quot;)[
+
+                        (set: $answer to &quot;mandibles&quot;)
+                        (set: $character&#39;s 3rd to it + 1)
+                        (replace: ?response)[Horzontal mandibles with prey squeezed between them]
+
+                    ]
+
+                    &lt;br&gt;
+                    (link: &quot;A flock of birds perched atop a looming spiral structure&quot;)[
+
+                        (set: $answer to &quot;flock&quot;)
+                        (set: $character&#39;s 1st to it + 2)
+                        (set: $character&#39;s 2nd to it + 2)
+                        (replace: ?response)[A flock of birds perched atop a looming spiral structure]
+
+                    ]
+
+                    &lt;br&gt;
+                    (link: &quot;A chorus singing a dirge in unison&quot;)[
+
+                        (set: $answer to &quot;chorus&quot;)
+                        (set: $character&#39;s 1st to it + 3)
+                        (replace: ?response)[A chorus singing a dirge in unison]
+
+                    ]
+
+                    &lt;br&gt;
+                    (link: &quot;Crowds of onlookers adoring a woman in an opulent dress&quot;)[
+
+                        (set: $answer to &quot;crowds&quot;)
+                        (set: $character&#39;s 2nd to it + 2)
+                        (replace: ?response)[Crowds of onlookers adoring a woman in an opulent dress]
+
+                    ]
+
+                }]
+
+                //NOTE: THIS IS A PLACEHOLDER WHILE I FIGURE OUT HOW TO ENSURE THAT THERE IS AN ANSWER BEFORE YOU MOVE ON//
+
+                (if: $numToAnswer &gt; 0)[[[Next-&gt;$passageNext]]]
+                (else:)[[[Next-&gt;Evaluation]]]
+
+        &lt;/div&gt;
+        
 &lt;/div&gt;
-
 &lt;audio src = &quot;../sounds/pencil.mp3&quot; autoplay&gt;</tw-passagedata><tw-passagedata pid="14" name="Survey Stylesheet" tags="" position="425,500" size="100,100">tw-story [tags~=&quot;survey&quot;] {
 
 	padding-top: 8px;
