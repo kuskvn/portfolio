@@ -119,6 +119,8 @@ Select to which degree you agree with the below statement:
 (set: $passageNext to $unanswered&#39;s ($numNext))
 (set: $unanswered to it - (a: $unanswered&#39;s $numNext))
 
+ &lt;div class = &quot;textbox&quot;&gt;
+
 Select to which degree you agree with the below statement:
 &quot;I am direct and forthright in acknowledging and confronting problems.&quot;
 
@@ -176,10 +178,13 @@ Select to which degree you agree with the below statement:
 	]
 
 }]
-</tw-passagedata><tw-passagedata pid="4" name="Agree 3" tags="" position="550,375" size="100,100">(set: $numToAnswer to it - 1)
+
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="4" name="Agree 3" tags="" position="550,375" size="100,100">(set: $numToAnswer to it - 1)
 (set: $numNext to (random: 1, $unanswered&#39;s length))
 (set: $passageNext to $unanswered&#39;s ($numNext))
 (set: $unanswered to it - (a: $unanswered&#39;s $numNext))
+
+ &lt;div class = &quot;textbox&quot;&gt;
 
 Select to which degree you agree with the below statement:
 &quot;I struggle to embrace new ideas.&quot;
@@ -237,10 +242,14 @@ Select to which degree you agree with the below statement:
         
 	]
 
-}]</tw-passagedata><tw-passagedata pid="5" name="Blot 1" tags="" position="675,125" size="100,100">(set: $numToAnswer to it - 1)
+}]
+
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="Blot 1" tags="" position="675,125" size="100,100">(set: $numToAnswer to it - 1)
 (set: $numNext to (random: 1, $unanswered&#39;s length))
 (set: $passageNext to $unanswered&#39;s ($numNext))
 (set: $unanswered to it - (a: $unanswered&#39;s $numNext))
+
+ &lt;div class = &quot;textbox&quot;&gt;
 
 Select the option that most closely aligns with your interpretation of the below image.
 &lt;html&gt;
@@ -298,10 +307,14 @@ Select the option that most closely aligns with your interpretation of the below
         
 	]
 
-}]</tw-passagedata><tw-passagedata pid="6" name="Blot 2" tags="" position="675,250" size="100,100">(set: $numToAnswer to it - 1)
+}]
+
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="6" name="Blot 2" tags="" position="675,250" size="100,100">(set: $numToAnswer to it - 1)
 (set: $numNext to (random: 1, $unanswered&#39;s length))
 (set: $passageNext to $unanswered&#39;s ($numNext))
 (set: $unanswered to it - (a: $unanswered&#39;s $numNext))
+
+ &lt;div class = &quot;textbox&quot;&gt;
 
 Select the option that most closely aligns with your interpretation of the below image.
 &lt;html&gt;
@@ -361,10 +374,13 @@ Select the option that most closely aligns with your interpretation of the below
 	]
 	
 }]
-</tw-passagedata><tw-passagedata pid="7" name="Blot 3" tags="" position="675,375" size="100,100">(set: $numToAnswer to it - 1)
+
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="Blot 3" tags="" position="675,375" size="100,100">(set: $numToAnswer to it - 1)
 (set: $numNext to (random: 1, $unanswered&#39;s length))
 (set: $passageNext to $unanswered&#39;s ($numNext))
 (set: $unanswered to it - (a: $unanswered&#39;s $numNext))
+
+ &lt;div class = &quot;textbox&quot;&gt;
 
 Select the option that most closely aligns with your interpretation of the below image.
 &lt;html&gt;
@@ -423,7 +439,9 @@ Select the option that most closely aligns with your interpretation of the below
         
 	]
 	
-}]</tw-passagedata><tw-passagedata pid="8" name="$passageNext" tags="" position="175,125" size="100,100">&lt;!-- This passage isn&#39;t real, but the editor doesn&#39;t know what to do with using a string variable to send you to another random passage --&gt;</tw-passagedata><tw-passagedata pid="9" name="Evaluation" tags="" position="800,150" size="100,100">(set: $max to 0)
+}]
+
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="8" name="$passageNext" tags="" position="175,125" size="100,100">&lt;!-- This passage isn&#39;t real, but the editor doesn&#39;t know what to do with using a string variable to send you to another random passage --&gt;</tw-passagedata><tw-passagedata pid="9" name="Evaluation" tags="" position="800,150" size="100,100">(set: $max to 0)
 (set: $myCharacter to 0)
 (for: each _score, ...$character)[
 
