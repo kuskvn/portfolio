@@ -49,10 +49,12 @@
 
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Start Menu" tags="" position="425,150" size="100,100">[[I&#39;m ready.-&gt;$passageNext]]
 
-[[I&#39;m testing the style of this piece.-&gt;Style Test (Blot 1 Copy)]]</tw-passagedata><tw-passagedata pid="2" name="Agree 1" tags="" position="550,125" size="100,100">(set: $numToAnswer to it - 1)
+[[Debugging-&gt;Style Test (Blot 1 Copy)]]</tw-passagedata><tw-passagedata pid="2" name="Agree 1" tags="" position="550,125" size="100,100">(set: $numToAnswer to it - 1)
 (set: $numNext to (random: 1, $unanswered&#39;s length))
 (set: $passageNext to $unanswered&#39;s ($numNext))
 (set: $unanswered to it - (a: $unanswered&#39;s $numNext))
+
+ &lt;div class = &quot;textbox&quot;&gt;
 
 Select to which degree you agree with the below statement:
 &quot;When something is no longer useful to me, I remove it from my life.&quot;
@@ -63,7 +65,8 @@ Select to which degree you agree with the below statement:
 		
         (set: $answer to &quot;Strongly agree&quot;)
         (set: $character&#39;s 1st to it + 2)
-		(replace: ?response)[[Strongly agree-&gt;$passageNext]]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[Strongly agree-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
 	
     ]
 	
@@ -73,7 +76,8 @@ Select to which degree you agree with the below statement:
 		(set: $answer to &quot;Agree&quot;)
         (set: $character&#39;s 1st to it + 1)
         (set: $character&#39;s 2nd to it + 1)
-		(replace: ?response)[[Agree-&gt;$passageNext]]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[Agree-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
 	
@@ -82,7 +86,8 @@ Select to which degree you agree with the below statement:
 		
         (set: $answer to &quot;Neutral&quot;)
         (set: $character&#39;s 2nd to it + 2)
-		(replace: ?response)[[Neutral-&gt;$passageNext]]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[Neutral-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
      
@@ -92,7 +97,8 @@ Select to which degree you agree with the below statement:
         (set: $answer to &quot;Disagree&quot;)
         (set: $character&#39;s 2nd to it + 1)
         (set: $character&#39;s 3rd to it + 1)
-		(replace: ?response)[[Disagree-&gt;$passageNext]]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[Disagree-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
      
@@ -101,16 +107,14 @@ Select to which degree you agree with the below statement:
 		
         (set: $answer to &quot;Strongly disagree&quot;)
         (set: $character&#39;s 3rd to it + 2)
-		(replace: ?response)[[Strongly disagree-&gt;$passageNext]]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[Strongly disagree-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
 
 }]
 
-//NOTE: THIS IS A PLACEHOLDER WHILE I FIGURE OUT HOW TO ENSURE THAT THERE IS AN ANSWER BEFORE YOU MOVE ON//
-
-(if: $numToAnswer &gt; 0)[[[Next-&gt;$passageNext]]]
-(else:)[[[Next-&gt;Evaluation]]]</tw-passagedata><tw-passagedata pid="3" name="Agree 2" tags="" position="550,250" size="100,100">(set: $numToAnswer to it - 1)
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="Agree 2" tags="" position="550,250" size="100,100">(set: $numToAnswer to it - 1)
 (set: $numNext to (random: 1, $unanswered&#39;s length))
 (set: $passageNext to $unanswered&#39;s ($numNext))
 (set: $unanswered to it - (a: $unanswered&#39;s $numNext))
@@ -123,18 +127,20 @@ Select to which degree you agree with the below statement:
     (link: &quot;Strongly agree&quot;)[
 		
         (set: $answer to &quot;Strongly agree&quot;)
-        (set: $character&#39;s 2nd to it + 2)
-		(replace: ?response)[[Strongly agree-&gt;$passageNext]]
-        
-	]
+        (set: $character&#39;s 1st to it + 2)
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[Strongly agree-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
+	
+    ]
 	
     &lt;br&gt;
     (link: &quot;Agree&quot;)[
     
 		(set: $answer to &quot;Agree&quot;)
+        (set: $character&#39;s 1st to it + 1)
         (set: $character&#39;s 2nd to it + 1)
-        (set: $character&#39;s 3rd to it + 1)
-		(replace: ?response)[[Agree-&gt;$passageNext]]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[Agree-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
 	
@@ -142,8 +148,9 @@ Select to which degree you agree with the below statement:
 	(link: &quot;Neutral&quot;)[
 		
         (set: $answer to &quot;Neutral&quot;)
-        (set: $character&#39;s 3rd to it + 2)
-		(replace: ?response)[[Neutral-&gt;$passageNext]]
+        (set: $character&#39;s 2nd to it + 2)
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[Neutral-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
      
@@ -151,9 +158,10 @@ Select to which degree you agree with the below statement:
 	(link: &quot;Disagree&quot;)[
 		
         (set: $answer to &quot;Disagree&quot;)
+        (set: $character&#39;s 2nd to it + 1)
         (set: $character&#39;s 3rd to it + 1)
-        (set: $character&#39;s 1st to it + 1)
-		(replace: ?response)[[Disagree-&gt;$passageNext]]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[Disagree-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
      
@@ -161,17 +169,14 @@ Select to which degree you agree with the below statement:
 	(link: &quot;Strongly disagree&quot;)[
 		
         (set: $answer to &quot;Strongly disagree&quot;)
-        (set: $character&#39;s 1st to it + 2)
-		(replace: ?response)[[Strongly disagree-&gt;$passageNext]]
+        (set: $character&#39;s 3rd to it + 2)
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[Strongly disagree-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
 
 }]
-
-//NOTE: THIS IS A PLACEHOLDER WHILE I FIGURE OUT HOW TO ENSURE THAT THERE IS AN ANSWER BEFORE YOU MOVE ON//
-
-(if: $numToAnswer &gt; 0)[[[Next-&gt;$passageNext]]]
-(else:)[[[Next-&gt;Evaluation]]]</tw-passagedata><tw-passagedata pid="4" name="Agree 3" tags="" position="550,375" size="100,100">(set: $numToAnswer to it - 1)
+</tw-passagedata><tw-passagedata pid="4" name="Agree 3" tags="" position="550,375" size="100,100">(set: $numToAnswer to it - 1)
 (set: $numNext to (random: 1, $unanswered&#39;s length))
 (set: $passageNext to $unanswered&#39;s ($numNext))
 (set: $unanswered to it - (a: $unanswered&#39;s $numNext))
@@ -185,9 +190,10 @@ Select to which degree you agree with the below statement:
 		
         (set: $answer to &quot;Strongly agree&quot;)
         (set: $character&#39;s 1st to it + 2)
-		(replace: ?response)[[Strongly agree-&gt;$passageNext]]
-        
-	]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[Strongly agree-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
+	
+    ]
 	
     &lt;br&gt;
     (link: &quot;Agree&quot;)[
@@ -195,7 +201,8 @@ Select to which degree you agree with the below statement:
 		(set: $answer to &quot;Agree&quot;)
         (set: $character&#39;s 1st to it + 1)
         (set: $character&#39;s 2nd to it + 1)
-		(replace: ?response)[[Agree-&gt;$passageNext]]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[Agree-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
 	
@@ -204,7 +211,8 @@ Select to which degree you agree with the below statement:
 		
         (set: $answer to &quot;Neutral&quot;)
         (set: $character&#39;s 2nd to it + 2)
-		(replace: ?response)[[Neutral-&gt;$passageNext]]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[Neutral-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
      
@@ -214,7 +222,8 @@ Select to which degree you agree with the below statement:
         (set: $answer to &quot;Disagree&quot;)
         (set: $character&#39;s 2nd to it + 1)
         (set: $character&#39;s 3rd to it + 1)
-		(replace: ?response)[[Disagree-&gt;$passageNext]]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[Disagree-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
      
@@ -223,16 +232,12 @@ Select to which degree you agree with the below statement:
 		
         (set: $answer to &quot;Strongly disagree&quot;)
         (set: $character&#39;s 3rd to it + 2)
-		(replace: ?response)[[Strongly disagree-&gt;$passageNext]]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[Strongly disagree-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
 
-}]
-
-//NOTE: THIS IS A PLACEHOLDER WHILE I FIGURE OUT HOW TO ENSURE THAT THERE IS AN ANSWER BEFORE YOU MOVE ON//
-
-(if: $numToAnswer &gt; 0)[[[Next-&gt;$passageNext]]]
-(else:)[[[Next-&gt;Evaluation]]]</tw-passagedata><tw-passagedata pid="5" name="Blot 1" tags="" position="675,125" size="100,100">(set: $numToAnswer to it - 1)
+}]</tw-passagedata><tw-passagedata pid="5" name="Blot 1" tags="" position="675,125" size="100,100">(set: $numToAnswer to it - 1)
 (set: $numNext to (random: 1, $unanswered&#39;s length))
 (set: $passageNext to $unanswered&#39;s ($numNext))
 (set: $unanswered to it - (a: $unanswered&#39;s $numNext))
@@ -247,7 +252,8 @@ Select the option that most closely aligns with your interpretation of the below
 		
         (set: $answer to &quot;two&quot;)
         (set: $character&#39;s 3rd to it + 3)
-		(replace: ?response)[[Two winged figures, each looking skyward-&gt;$passageNext]]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[Two winged figures, each looking skyward-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
 	
@@ -256,7 +262,8 @@ Select the option that most closely aligns with your interpretation of the below
     
 		(set: $answer to &quot;mandibles&quot;)
         (set: $character&#39;s 3rd to it + 1)
-		(replace: ?response)[Horzontal mandibles with prey squeezed between them]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[Horzontal mandibles with prey squeezed between them-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
 	
@@ -266,7 +273,8 @@ Select the option that most closely aligns with your interpretation of the below
         (set: $answer to &quot;flock&quot;)
         (set: $character&#39;s 1st to it + 2)
         (set: $character&#39;s 2nd to it + 2)
-		(replace: ?response)[A flock of birds perched atop a looming spiral structure]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[A flock of birds perched atop a looming spiral structure-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
      
@@ -275,7 +283,8 @@ Select the option that most closely aligns with your interpretation of the below
 		
         (set: $answer to &quot;chorus&quot;)
         (set: $character&#39;s 1st to it + 3)
-		(replace: ?response)[A chorus singing a dirge in unison]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[A chorus singing a dirge in unison-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
      
@@ -284,16 +293,12 @@ Select the option that most closely aligns with your interpretation of the below
 		
         (set: $answer to &quot;crowds&quot;)
         (set: $character&#39;s 2nd to it + 2)
-		(replace: ?response)[Crowds of onlookers adoring a woman in an opulent dress]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[Crowds of onlookers adoring a woman in an opulent dress-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
 
-}]
-
-//NOTE: THIS IS A PLACEHOLDER WHILE I FIGURE OUT HOW TO ENSURE THAT THERE IS AN ANSWER BEFORE YOU MOVE ON//
-
-(if: $numToAnswer &gt; 0)[[[Next-&gt;$passageNext]]]
-(else:)[[[Next-&gt;Evaluation]]]</tw-passagedata><tw-passagedata pid="6" name="Blot 2" tags="" position="675,250" size="100,100">(set: $numToAnswer to it - 1)
+}]</tw-passagedata><tw-passagedata pid="6" name="Blot 2" tags="" position="675,250" size="100,100">(set: $numToAnswer to it - 1)
 (set: $numNext to (random: 1, $unanswered&#39;s length))
 (set: $passageNext to $unanswered&#39;s ($numNext))
 (set: $unanswered to it - (a: $unanswered&#39;s $numNext))
@@ -308,7 +313,8 @@ Select the option that most closely aligns with your interpretation of the below
 		
         (set: $answer to &quot;beard&quot;)
         (set: $character&#39;s 2nd to it + 2)
-		(replace: ?response)[[A bearded man with a slightly aloft gaze-&gt;$passageNext]]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[A bearded man with a slightly aloft gaze-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
 
@@ -318,7 +324,8 @@ Select the option that most closely aligns with your interpretation of the below
         (set: $answer to &quot;lovers&quot;)
         (set: $character&#39;s 3rd to it + 2)
         (set: $character&#39;s 2nd to it + 3)
-		(replace: ?response)[[Lovers about to embrace-&gt;$passageNext]]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[Lovers about to embrace-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
      
@@ -327,7 +334,8 @@ Select the option that most closely aligns with your interpretation of the below
 		
         (set: $answer to &quot;plane&quot;)
         (set: $character&#39;s 1st to it + 2)
-		(replace: ?response)[[A plane traveling over a lively city at nightime-&gt;$passageNext]]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[A plane traveling over a lively city at nightime-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
      
@@ -337,7 +345,8 @@ Select the option that most closely aligns with your interpretation of the below
         (set: $answer to &quot;bears&quot;)
         (set: $character&#39;s 3rd to it + 3)
         (set: $character&#39;s 2nd to it + 1)
-		(replace: ?response)[[A pair of bears high-fiving-&gt;$passageNext]]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[A pair of bears high-fiving-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
 	
@@ -346,16 +355,13 @@ Select the option that most closely aligns with your interpretation of the below
     
 		(set: $answer to &quot;embarrassing&quot;)
         (set: $character&#39;s 1st to it + 3)
-		(replace: ?response)[[It&#39;s too embarrassing to truthfully say what it looks like-&gt;$passageNext]]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[It&#39;s too embarrassing to truthfully say what it looks like-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
 	
 }]
-
-//NOTE: THIS IS A PLACEHOLDER WHILE I FIGURE OUT HOW TO ENSURE THAT THERE IS AN ANSWER BEFORE YOU MOVE ON//
-
-(if: $numToAnswer &gt; 0)[[[Next-&gt;$passageNext]]]
-(else:)[[[Next-&gt;Evaluation]]]</tw-passagedata><tw-passagedata pid="7" name="Blot 3" tags="" position="675,375" size="100,100">(set: $numToAnswer to it - 1)
+</tw-passagedata><tw-passagedata pid="7" name="Blot 3" tags="" position="675,375" size="100,100">(set: $numToAnswer to it - 1)
 (set: $numNext to (random: 1, $unanswered&#39;s length))
 (set: $passageNext to $unanswered&#39;s ($numNext))
 (set: $unanswered to it - (a: $unanswered&#39;s $numNext))
@@ -370,7 +376,8 @@ Select the option that most closely aligns with your interpretation of the below
 		
         (set: $answer to &quot;hornet&quot;)
         (set: $character&#39;s 2nd to it + 3)
-		(replace: ?response)[[A microscopically close shot of a hornet&#39;s face-&gt;$passageNext]]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[A microscopically close shot of a hornet&#39;s face-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
 
@@ -380,7 +387,8 @@ Select the option that most closely aligns with your interpretation of the below
         (set: $answer to &quot;men&quot;)
         (set: $character&#39;s 2nd to it + 2)
         (set: $character&#39;s 3rd to it + 3)
-		(replace: ?response)[[Two men wearing tuxedos in a lively ballroom-&gt;$passageNext]]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[Two men wearing tuxedos in a lively ballroom-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
      
@@ -389,7 +397,8 @@ Select the option that most closely aligns with your interpretation of the below
 		
         (set: $answer to &quot;canyon&quot;)
         (set: $character&#39;s 2nd to it + 3)
-		(replace: ?response)[[An expansive canyon stretching between two mountains-&gt;$passageNext]]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[An expansive canyon stretching between two mountains-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
      
@@ -399,7 +408,8 @@ Select the option that most closely aligns with your interpretation of the below
         (set: $answer to &quot;town&quot;)
         (set: $character&#39;s 1st to it + 3)
         (set: $character&#39;s 3rd to it + 2)
-		(replace: ?response)[[A small town leveled by a horrific storm-&gt;$passageNext]]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[A small town leveled by a horrific storm-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
 	
@@ -408,16 +418,12 @@ Select the option that most closely aligns with your interpretation of the below
     
 		(set: $answer to &quot;logs&quot;)
         (set: $character&#39;s 3rd to it + 1)
-		(replace: ?response)[[Logs and twigs stacked together to form a campfire-&gt;$passageNext]]
+		(if: $numToAnswer &gt; 0)[(replace: ?response)[[[Logs and twigs stacked together to form a campfire-&gt;$passageNext]]]]
+        (else:)[(replace: ?response)[[[Next-&gt;Evaluation]]]]
         
 	]
 	
-}]
-
-//NOTE: THIS IS A PLACEHOLDER WHILE I FIGURE OUT HOW TO ENSURE THAT THERE IS AN ANSWER BEFORE YOU MOVE ON//
-
-(if: $numToAnswer &gt; 0)[[[Next-&gt;$passageNext]]]
-(else:)[[[Next-&gt;Evaluation]]]</tw-passagedata><tw-passagedata pid="8" name="$passageNext" tags="" position="175,125" size="100,100">&lt;!-- This passage isn&#39;t real, but the editor doesn&#39;t know what to do with using a string variable to send you to another random passage --&gt;</tw-passagedata><tw-passagedata pid="9" name="Evaluation" tags="" position="800,150" size="100,100">(set: $max to 0)
+}]</tw-passagedata><tw-passagedata pid="8" name="$passageNext" tags="" position="175,125" size="100,100">&lt;!-- This passage isn&#39;t real, but the editor doesn&#39;t know what to do with using a string variable to send you to another random passage --&gt;</tw-passagedata><tw-passagedata pid="9" name="Evaluation" tags="" position="800,150" size="100,100">(set: $max to 0)
 (set: $myCharacter to 0)
 (for: each _score, ...$character)[
 
@@ -500,12 +506,14 @@ Select the option that most closely aligns with your interpretation of the below
 
                         (set: $answer to &quot;crowds&quot;)
                         (set: $character&#39;s 2nd to it + 2)
-                        (replace: ?response)[[[Crowds of onlookers adoring a woman in an opulent dress-&gt;$passageNext]]]
+                        (if: $numToAnswer &gt; 0)[
+                        (replace: ?response)[[[Crowds of onlookers adoring a woman in an opulent dress-&gt;$passageNext]]]]
+                        (else:)(replace: ?response)[[[Next-&gt;Evaluation]]]
+
 
                     ]
 
                 }]
-
 
 
         &lt;/div&gt;
@@ -546,7 +554,7 @@ Select the option that most closely aligns with your interpretation of the below
     
 }
     
-</tw-passagedata><tw-passagedata pid="15" name="Untitled Passage" tags="" position="925,125" size="100,100"></tw-passagedata></tw-storydata>
+</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
