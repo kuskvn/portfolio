@@ -463,7 +463,7 @@ Select the option that most closely aligns with your interpretation of the below
 
                         (set: $answer to &quot;two&quot;)
                         (set: $character&#39;s 3rd to it + 3)
-                        (replace: ?response)[[Two winged figures, each looking skyward-&gt;$passageNext]]
+                        (replace: ?response)[[[Two winged figures, each looking skyward-&gt;$passageNext]]]
 
                     ]
 
@@ -472,7 +472,7 @@ Select the option that most closely aligns with your interpretation of the below
 
                         (set: $answer to &quot;mandibles&quot;)
                         (set: $character&#39;s 3rd to it + 1)
-                        (replace: ?response)[Horzontal mandibles with prey squeezed between them]
+                        (replace: ?response)[[[Horzontal mandibles with prey squeezed between them-&gt;$passageNext]]]
 
                     ]
 
@@ -482,7 +482,7 @@ Select the option that most closely aligns with your interpretation of the below
                         (set: $answer to &quot;flock&quot;)
                         (set: $character&#39;s 1st to it + 2)
                         (set: $character&#39;s 2nd to it + 2)
-                        (replace: ?response)[A flock of birds perched atop a looming spiral structure]
+                        (replace: ?response)[[[A flock of birds perched atop a looming spiral structure-&gt;$passageNext]]]
 
                     ]
 
@@ -491,7 +491,7 @@ Select the option that most closely aligns with your interpretation of the below
 
                         (set: $answer to &quot;chorus&quot;)
                         (set: $character&#39;s 1st to it + 3)
-                        (replace: ?response)[A chorus singing a dirge in unison]
+                        (replace: ?response)[[[A chorus singing a dirge in unison-&gt;$passageNext]]]
 
                     ]
 
@@ -506,10 +506,7 @@ Select the option that most closely aligns with your interpretation of the below
 
                 }]
 
-                //NOTE: THIS IS A PLACEHOLDER WHILE I FIGURE OUT HOW TO ENSURE THAT THERE IS AN ANSWER BEFORE YOU MOVE ON//
 
-                (if: $numToAnswer &gt; 0)[[[Next-&gt;$passageNext]]]
-                (else:)[[[Next-&gt;Evaluation]]]
 
         &lt;/div&gt;
 
