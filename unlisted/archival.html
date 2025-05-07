@@ -47,11 +47,30 @@
 	font-family: archerbold;
 	src: url("../fonts/archer/ArcherBoldPro.otf") format("opentype");
 
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Start Menu" tags="" position="425,150" size="100,100">&lt;div class = &quot;textbox&quot;&gt;
-&lt;title style=&quot;font-family: gratisneue&quot;&gt;archival&lt;/title&gt;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Start Menu" tags="" position="425,150" size="100,100">
 
+&lt;div class = &quot;textbox&quot;&gt;
+Who is using the system?
 
+(input: bind $user)
 
+|response&gt;[{
+
+	(link: &quot;Initiate access&quot;)[
+
+		(if: $user is &quot;him&quot;)[(replace: ?response)[[[Welcome!-&gt;Foyer]]]]
+        (else-if: $user is &quot;her&quot;)[(replace: ?response)[[[Welcome!-&gt;Foyer]]]]
+        (else-if: $user is &quot;Dr. Ignacio Barriga-Cisneros&quot;)[(replace: ?response)[[[Welcome!-&gt;Foyer]]]]
+        (else-if: $user is &quot;07/17/13&quot;)[
+    
+    		(replace: ?response)[T̶̢̨̺͈̰̪̝̘̞̗̘͌̓̅̓ͅh̷̟͖̝̜͉͓̙̿́̎̈́̑į̶͔͇͇͙͔̗̬̜͖̻̬̗̙̰̻̯̘͕̎͂̌̎̍́̿̽́̆́̾̐̄́̍̓͋̄̾̓́̈́̒͘͜͝ͅs̵̙͙͈͚̤͑̿́̂͗̒̉ ̷̤̹̦̤͕̹̈́̓̌̋̀͗͂̈́̂̉͑͐̅͒̒̅͗̊̈̊̃̑́̽̕͜͝͝͝͝c̸̝̺͓͕̥͌a̸̧̢͙̟̗̭̭͉̝̼̗̟̬͉̙͔͉͖̞͖̦̺͈̬̰̼̻̳̰͑̌͑͒͌͂̓͂́̒̄͛͑̋́͂̆̒̇̀̐̂̇̓̓̎͂̏͜͝͝ṡ̷̡̛̠̭̫͇̮̜̯̮̑̋̄̈́̔͆͛̎̒̎̈͆̂́̓̏͌̀́́͒̈́̈́̈́͗̚ḙ̴̢͕̮̹̞̭̠̠̭͉̱͔̘̼͇̬̺̺̻̝͂͆͒͌̏̇́̔̐̈̓̔̀̏̒̽̍̉̐̚̚̚͝͠ ̷̢̛̜̰̰̖̠̦̱̝̖͓̙̻̗̹̜̺̝̤̯̙̯͖̠̙̞̓̈́̐̒͋̄̉̎̾̑̄͒͂̎̾̈͒̆͐̉̆́͂̐̚̚͝͠ͅw̴̧̢̞̦̝̱̺̙̫̞̩̯͈̙̗͕̮͊̈̓̂͛̆̋̇͗͒̋͆̔́̕͜͝ͅȃ̷͕̤̰̘̲͈̼̱̭̤̤͑͘s̷̢̡̧͓̣̗̱̠̞̣̻̠͙̩͙̯̖̮̰̦̪̫̫͕͑́̒̀̅͗̂̄͘͝͝ ̸̡͇̟̲͕̳̣̯̲̮̟̭̈́̂̒̌͆̓̿̾̈́͑̓̈̄̋͘̚̕͠͠d̶̢̧̨̨̨̩̙̗̭̟̫͉̱̘͎̦͔̞͎͓̪̪̤͊̇͐͛͛̉͌̄͐̅̔̉̋̈̌̇̀͗̇̑̃̃́̐͜͠͠i̵̡̡̻̤̱͔̦̟̯̲̗͙̻͋̆̇͗͛͜͝͝͝ͅs̶̡̢̧̛̩̙͔̱̘͍̒̈́̈́͌͒̇͆͂͑͌̿̅̊̄̊̈́̐̕͘͝m̵̢̨̛̟͈̲͈͉̞̓͋̉͒̔̈́̀̏̑͆̃͒͛̑̈̄̌̊̀͘i̶̧̢̧̛͕͕̻̙͇̻̝͚͕̩̲̘͎̝͓̺͎̟̥̜̠̜̥͎͔͛̋͑̆̍̃̅̈́̈͛̀͑̆͋̔́̂̊͘̚̕̚͠s̸̡̛̞̮̫̹̤͓͍͚̝̖̊͒̏̅̐͑̕s̵̨͉̣͙̻͕̫͓̤̘̰̞̯̞͍͔̜̤̖̲̊͜͠ę̶̨̛̛͚͈̬̪̖̻̩̹̹̺̃͐̈̊͊̐́̀̽̌̃̋̈̄̎͛̓̔̒̍̍́͗͜͝͝d̸̢̛̹̠͔̥͖̦͈̗͇̟̟̑̃́͗̔̀̿͛̆̈́̽͆̀͂̈́̉̈́̈́̏͂̊̐̄͠͠(live: 5s)[(stop:)[(replace: ?response)[Access granted. [[Welcome back, Dr. Barriga-&gt;Foyer]]]]]]
+        
+        ]
+		(else:)[(replace: ?response)[User not recognized, do you wish to [[find yourself?-&gt;$passageNext]]]]
+        
+	]
+     
+}]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="Agree 1" tags="" position="550,125" size="100,100">(set: $numToAnswer to it - 1)
 (set: $numNext to (random: 1, $unanswered&#39;s length))
 (set: $passageNext to $unanswered&#39;s ($numNext))
@@ -451,7 +470,9 @@ Select the option that most closely aligns with your interpretation of the below
 
 (set: $numNext to (random: 1, $unanswered&#39;s length))
 (set: $passageNext to $unanswered&#39;s ($numNext))
-(set: $unanswered to it - (a: $unanswered&#39;s $numNext))</tw-passagedata><tw-passagedata pid="11" name="Stylesheet" tags="" position="300,275" size="100,100">tw-story [tags~=&quot;survey&quot;] {
+(set: $unanswered to it - (a: $unanswered&#39;s $numNext))
+
+(set: $user to &quot;&quot;)</tw-passagedata><tw-passagedata pid="11" name="stylesheet" tags="" position="300,275" size="100,100">tw-story [tags~=&quot;survey&quot;] {
 
 	padding-top: 8px;
     padding-bottom 8px;
