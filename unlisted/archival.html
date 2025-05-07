@@ -11,43 +11,59 @@
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play archival.</tw-noscript></noscript></tw-story>
 <tw-storydata name="archival" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="10389A50-59A5-41F7-8B19-02A20278D31B" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">.textbox {
   
-    font-size: 16px;
-    font-family: "archerlight";
+  font-size: 16px;
+  font-family: "archerlight";
 
-    line-height: 1.6;
-    max-width: 80%;
-    text-align: left;
-    overflow-y: auto;
-    color: #d3d3d3;
-    background-color: #181818;
-    padding: 20px;
-    
-  	border-radius: 8px;
-    border: 2px solid papayawhip;
-  	margin: auto;
+  line-height: 1.6;
+  max-width: 80%;
+  text-align: left;
+  overflow-y: auto;
+  color: #d3d3d3;
+  background-color: #181818;
+  padding: 20px;
 
-}
-
-@font-face {
-    
-	font-family: futurabold;
-    src: url("../fonts/futura/futurabold.otf") format("opentype");
+  border-radius: 8px;
+  border: 2px solid #d3d3d3;
+  margin: auto;
 
 }
 
-@font-face {
+.title {
 	
-	font-family: archerlight;
-	src: url("../fonts/archer/ArcherMediumPro.otf") format("opentype");
+  font-family: "gratisneue";
+  font-size: 50px;
+  color: #d3d3d3;
+  text-align: center;
 	
 }
 
 @font-face {
-	
-	font-family: archerbold;
-	src: url("../fonts/archer/ArcherBoldPro.otf") format("opentype");
 
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Start Menu" tags="" position="425,150" size="100,100">
+  font-family: futurabold;
+  src: url("../fonts/futura/futurabold.otf") format("opentype");
+
+}
+
+@font-face {
+
+  font-family: archerlight;
+  src: url("../fonts/archer/ArcherMediumPro.otf") format("opentype");
+
+}
+
+@font-face {
+
+  font-family: archerbold;
+  src: url("../fonts/archer/ArcherBoldPro.otf") format("opentype");
+
+}
+
+@font-face {
+
+  font-family: gratisneue;
+  src: url("../fonts/gratisneue/GratisNeue.otf") format("opentype");
+
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Start Menu" tags="" position="425,150" size="100,100">(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;=XXX=&quot;)[&lt;div class = title&gt;Archival&lt;/title&gt;]
 
 &lt;div class = &quot;textbox&quot;&gt;
 Who is using the system?
@@ -472,50 +488,7 @@ Select the option that most closely aligns with your interpretation of the below
 (set: $passageNext to $unanswered&#39;s ($numNext))
 (set: $unanswered to it - (a: $unanswered&#39;s $numNext))
 
-(set: $user to &quot;&quot;)</tw-passagedata><tw-passagedata pid="11" name="stylesheet" tags="" position="300,275" size="100,100">tw-story [tags~=&quot;survey&quot;] {
-
-	padding-top: 8px;
-    padding-bottom 8px;
-    padding-left: 80px;
-    padding-right: 40px;
-    
-    color: #4b3621
-    background-color: #4b3621;
-    font-family: archerlight;
-    /** font-size: 25px; &lt;-- video said this was useless but still curious */
-    /** text-shadow: 0 0 3px, &lt;-- This needs better colors first */
-    
-    	@font-face {
-
-        font-family: futurabold;
-        src: url(&quot;../fonts/futura/futurabold.otf&quot;) format(&quot;opentype&quot;);
-
-        }
-
-        @font-face {
-
-        font-family: archerlight;
-        src: url(&quot;../fonts/archer/ArcherMediumPro.otf&quot;) format(&quot;opentype&quot;);
-
-        }
-
-        @font-face {
-
-        font-family: archerbold;
-        src: url(&quot;../fonts/archer/ArcherBoldPro.otf&quot;) format(&quot;opentype&quot;);
-
-        }
-        
-        @font-face {
-
-        font-family: gratisneue;
-        src: url(&quot;../fonts/gratisneue/GratisNeue.otf&quot;) format(&quot;opentype&quot;);
-
-        }
-    
-}
-    
-</tw-passagedata><tw-passagedata pid="12" name="Foyer" tags="" position="1050,375" size="100,100">&lt;div class = &quot;textbox&quot;&gt;
+(set: $user to &quot;&quot;)</tw-passagedata><tw-passagedata pid="11" name="Story Stylesheet" tags="" position="300,275" size="100,100"></tw-passagedata><tw-passagedata pid="12" name="Foyer" tags="" position="1050,375" size="100,100">&lt;div class = &quot;textbox&quot;&gt;
 	The entrance to a large, modern-styled apartment. The walls are covered in a deep slate grey and shrinks the space somewhat. A dark green carpet reaches the end of the entrance, complete with textured wood-grain laminate floors underneath it. Just past the threshold of the entrance lies a textured doormat with a square pattern, looking down this hallway. To the left was a shelf with coat hangers, a bench, and a nook at its base for shoes. 
     
 	Just past beyond the threshold at the end of the [[Hallway]] lies the [[Living Room]] to the right and adjoining Hallway that connects to bedrooms to the left.
